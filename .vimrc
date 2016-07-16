@@ -23,6 +23,9 @@ set number
 " Set the font
 set guifont=Hack:h12
 
+" Ignore folders with ctrlp
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git|tmp\'
+
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
@@ -58,6 +61,12 @@ Plug 'elixir-lang/vim-elixir'
 " vim-plug for javascript
 Plug 'pangloss/vim-javascript'
 
+" vim-plug for es6 syntax
+Plug 'isruslan/vim-es6'
+
+" HTMLbars support
+Plug 'joukevandermaas/vim-ember-hbs'
+
 " Git wrapper for vim using :Git
 Plug 'tpope/vim-fugitive'
 
@@ -77,21 +86,25 @@ Plug 'tpope/vim-rails'
 Plug 'flazz/vim-colorschemes'
 
 " Syntastic for sytax checking
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Airline for vim
 Plug 'bling/vim-airline'
+
 " Colorschemes for vim airline
 Plug 'vim-airline/vim-airline-themes'
 
-" Support for typescript 
+" Support for typescript
 Plug 'https://github.com/leafgarland/typescript-vim'
 
-" Support for JSX 
+" Support for JSX
 Plug 'https://github.com/mxw/vim-jsx'
 
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
+
+" Adding wakatime for tracking work within vim
+Plug 'https://github.com/wakatime/vim-wakatime'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -140,7 +153,7 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" Options for using tmux & vim navigation 
+" Options for using tmux & vim navigation
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
@@ -149,3 +162,8 @@ nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
 nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
+" Options for moving around vim splits
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
