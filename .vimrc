@@ -14,7 +14,6 @@ set background=dark
 let base16colorspace=256
 syntax on
 set t_Co=256 " 256 color mode
-" colorscheme materialtheme
 
 " line numbers
 set relativenumber
@@ -30,12 +29,6 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -43,32 +36,17 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 " vim-plug for the elixir language
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
 " vim-plug for javascript
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 " vim-plug for es6 syntax
-Plug 'isruslan/vim-es6'
+Plug 'isruslan/vim-es6', { 'for': 'javascript' }
 
 " HTMLbars support
 Plug 'joukevandermaas/vim-ember-hbs'
-
-" Git wrapper for vim using :Git
-Plug 'tpope/vim-fugitive'
 
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -76,14 +54,8 @@ Plug 'airblade/vim-gitgutter'
 " Fuzzy finder for vim
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Code completion for vim
-" Plug 'valloric/youcompleteme'
-
 " Support for rails
-Plug 'tpope/vim-rails'
-
-" Colorschemes for vim
-Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
 " Syntastic for sytax checking
 Plug 'scrooloose/syntastic'
@@ -95,10 +67,10 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Support for typescript
-Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " Support for JSX
-Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
 
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
@@ -140,10 +112,7 @@ highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
 " nerd tree options
-" nnoremap <Leader>f :NERDTreeToggle<Enter>
-" let NERDTreeToggle=<F4>
 silent! nmap <F3> :NERDTreeToggle<CR>
-" silent! map <F3> :NERDTreeFind<CR>
 
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
