@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 11,
 
     // font family with optional fallbacks
     fontFamily: 'Hack',
@@ -55,7 +55,7 @@ module.exports = {
   //   `hypersolar`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [`hyperterm-material`],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
