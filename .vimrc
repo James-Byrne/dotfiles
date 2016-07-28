@@ -114,6 +114,7 @@ highlight link SyntasticStyleWarningSign SignColumn
 " nerd tree options
 silent! nmap <F3> :NERDTreeToggle<CR>
 
+let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', 'bower_componets', '.git']
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
 
