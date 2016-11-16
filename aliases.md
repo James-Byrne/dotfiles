@@ -1,5 +1,8 @@
 This is just a file for quickly noting my current aliases
 
+#### General 
+cl    :   clear
+
 #### Ember 
 es    :   ember serve
 et    :   emebr test
@@ -12,6 +15,7 @@ mps   :   mix phoenix.serve
 gst   :   git status 
 gcm   :   git commit -m 
 gc    :   git commit
+gd    :   git diff
 
 #### NPM
 nis   :     npm install --save 
