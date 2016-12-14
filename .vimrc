@@ -8,11 +8,27 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-" main color scheme
-set background=light
+" Setup true colors
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 
 syntax on
-" colorscheme solarized
+colorscheme onedark
+" Set the background to be transparent
+hi Normal guibg=NONE ctermbg=NONE
 
 " line numbers
 set relativenumber
@@ -22,15 +38,24 @@ set number
 set guifont=Hack:h12
 
 " Ignore folders with ctrlp
-let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git\|tmp\|'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*,*/.git/*,*/tmp/*
 
 call plug#begin('~/.vim/plugged')
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
 
+" Plug for the vim onedark theme
+Plug 'https://github.com/joshdick/onedark.vim'
+
+" Plug for the vim airline onedark theme
+Plug 'https://github.com/vim-airline/vim-airline'
+
 " vim-plug for the elixir language
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+
+" precompiler for erland with vim
+Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
 
 " vim-plug for javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -56,11 +81,11 @@ Plug 'bling/vim-airline'
 " Colorschemes for vim airline
 Plug 'vim-airline/vim-airline-themes'
 
-" Support for typescript
-" Plug 'https://github.com/leafgarland/typescript-vim', { 'for': 'typescript' }
-
 " Support for JSX
-" "Plug 'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
+
+" Adding the polyglot support
+Plug 'https://github.com/sheerun/vim-polyglot'
 
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
@@ -68,44 +93,17 @@ Plug 'https://github.com/christoomey/vim-tmux-navigator'
 " Adding wakatime for tracking work within vim
 Plug 'https://github.com/wakatime/vim-wakatime'
 
-" Plug for the vim solarized colorscheme
-" Plug 'altercation/vim-colors-solarized'
-
 " Add plugins to &runtimepath
 call plug#end()
 
-" Tell syntastic to ignore ionic elements
-" let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
-
 " Settings for vim airline
 set laststatus=2
-let g:airline_theme='murmur'
+let g:airline_theme='onedark'
+"let g:airline_theme='murmur'
 let g:airline_powerline_fonts = 1
 
-" Syntastic options
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_loc_list_height = 5
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-"let g:syntastic_javascript_checkers = ['eslint']
-
-"let g:syntastic_error_symbol = '❌'
-"let g:syntastic_style_error_symbol = '⁉️'
-"let g:syntastic_warning_symbol = '⚠️'
-"let g:syntastic_style_warning_symbol = '⚠️'
-
-"highlight link SyntasticErrorSign SignColumn
-"highlight link SyntasticWarningSign SignColumn
-"highlight link SyntasticStyleErrorSign SignColumn
-"highlight link SyntasticStyleWarningSign SignColumn
-
 " allow backspacing over everything in insert mode
- set backspace=indent,eol,start"  
+ set backspace=indent,eol,start"
 
 " nerd tree options
 silent! nmap <F3> :NERDTreeToggle<CR>
@@ -118,18 +116,3 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
-" Options for using tmux & vim navigation
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-
-" Options for moving around vim splits
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
