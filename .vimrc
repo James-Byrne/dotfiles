@@ -38,7 +38,7 @@ set number
 set guifont=Hack:h12
 
 " Ignore folders with ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,elm-stuff/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*
 
 call plug#begin('~/.vim/plugged')
 
