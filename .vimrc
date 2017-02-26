@@ -38,7 +38,7 @@ set number
 set guifont=Hack:h12
 
 " Ignore folders with ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*,*/.git/*,*/tmp/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*
 
 call plug#begin('~/.vim/plugged')
 
@@ -54,17 +54,20 @@ Plug 'https://github.com/vim-airline/vim-airline'
 " vim-plug for the elixir language
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
-" precompiler for erland with vim
+" vim-plug for the elm langauge
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
+
+" precompiler for erlang with vim
 Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
 
 " vim-plug for javascript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 " vim-plug for es6 syntax
-Plug 'isruslan/vim-es6', { 'for': 'javascript' }
+" Plug 'isruslan/vim-es6', { 'for': 'javascript' }
 
 " HTMLbars support
-Plug 'joukevandermaas/vim-ember-hbs'
+" Plug 'joukevandermaas/vim-ember-hbs'
 
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -72,17 +75,8 @@ Plug 'airblade/vim-gitgutter'
 " Fuzzy finder for vim
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Support for rails
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-
 " Airline for vim
 Plug 'bling/vim-airline'
-
-" Colorschemes for vim airline
-Plug 'vim-airline/vim-airline-themes'
-
-" Support for JSX
-Plug 'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
 
 " Adding the polyglot support
 Plug 'https://github.com/sheerun/vim-polyglot'
@@ -90,11 +84,11 @@ Plug 'https://github.com/sheerun/vim-polyglot'
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 
-" Adding wakatime for tracking work within vim
-Plug 'https://github.com/wakatime/vim-wakatime'
-
 " Add plugins to &runtimepath
 call plug#end()
+
+" Run elm-format after save
+let g:elm_format_autosave = 1
 
 " Settings for vim airline
 set laststatus=2
