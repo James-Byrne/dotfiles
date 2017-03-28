@@ -48,9 +48,6 @@ Plug 'scrooloose/nerdtree'
 " Plug for the vim onedark theme
 Plug 'https://github.com/joshdick/onedark.vim'
 
-" Plug for the vim airline onedark theme
-Plug 'https://github.com/vim-airline/vim-airline'
-
 " vim-plug for the elixir language
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
@@ -92,8 +89,6 @@ let g:elm_format_autosave = 1
 
 " Settings for vim airline
 set laststatus=2
-let g:airline_theme='onedark'
-"let g:airline_theme='murmur'
 let g:airline_powerline_fonts = 1
 
 " allow backspacing over everything in insert mode
