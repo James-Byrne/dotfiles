@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/james/development/blog/app/views/blog'
+let g:netrw_dirhist_2='/Users/james/development/myJournalWeb/.git'
+let g:netrw_dirhist_3='/Users/james/development/blog'
+let g:netrw_dirhist_4='/Users/james/.vim'
+let g:netrw_dirhist_5='/Users/james/development/product-works/tp_client/app'
+let g:netrw_dirhist_6='/Users/james/development/product-works/opsworks-cookbooks'
