@@ -90,6 +90,7 @@ let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "⇒"
 
 set conceallevel=1
+hi Conceal cterm=NONE ctermbg=NONE ctermfg=yellow
 
 " Settings for vim airline
 set laststatus=2
