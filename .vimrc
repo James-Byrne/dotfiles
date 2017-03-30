@@ -57,15 +57,6 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " precompiler for erlang with vim
 Plug 'vim-erlang/vim-erlang-compiler', { 'for': 'erlang' }
 
-" vim-plug for javascript
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-
-" vim-plug for es6 syntax
-" Plug 'isruslan/vim-es6', { 'for': 'javascript' }
-
-" HTMLbars support
-" Plug 'joukevandermaas/vim-ember-hbs'
-
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
 
@@ -86,6 +77,19 @@ call plug#end()
 
 " Run elm-format after save
 let g:elm_format_autosave = 1
+
+" Config for vim-javascript
+let g:javascript_conceal_function             = "λ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "⇒"
+
+set conceallevel=1
 
 " Settings for vim airline
 set laststatus=2
