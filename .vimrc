@@ -3,6 +3,7 @@ set noswapfile
 
 " Set the tabs
 set tabstop=2
+set ts=2
 set softtabstop=2
 set shiftwidth=2
 set shiftround
@@ -10,23 +11,22 @@ set expandtab
 
 " Setup true colors
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+""If you're using tmux version 2.2 or later, you can remove the outermost
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more
+"information.)
 if (empty($TMUX))
   if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
   if (has("termguicolors"))
     set termguicolors
   endif
 endif
 
 syntax on
-colorscheme onedark
+" colorscheme onedark
+colorscheme OceanicNext
+
 " Set the background to be transparent
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -38,7 +38,7 @@ set number
 set guifont=Hack:h12
 
 " Ignore folders with ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,elm-stuff/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/elm-stuff/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/ebin/*
 
 call plug#begin('~/.vim/plugged')
 
@@ -48,8 +48,11 @@ Plug 'scrooloose/nerdtree'
 " Plug for the vim onedark theme
 Plug 'https://github.com/joshdick/onedark.vim'
 
-" vim-plug for the elixir language
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+" Plug for the vim oceanic next theme
+Plug 'mhartington/oceanic-next'
+
+" vim-plugs for the elixir language
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
 " vim-plug for the elm langauge
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
@@ -95,6 +98,7 @@ hi Conceal cterm=NONE ctermbg=NONE ctermfg=yellow
 " Settings for vim airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline_theme='oceanicnext'
 
 " allow backspacing over everything in insert mode
  set backspace=indent,eol,start"
