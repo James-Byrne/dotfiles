@@ -31,7 +31,6 @@ colorscheme OceanicNext
 hi Normal guibg=NONE ctermbg=NONE
 
 " line numbers
-set relativenumber
 set number
 
 " Set the font
@@ -70,7 +69,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 
 " Adding the polyglot support
-Plug 'https://github.com/sheerun/vim-polyglot'
+" Plug 'https://github.com/sheerun/vim-polyglot'
 
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
