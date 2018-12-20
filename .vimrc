@@ -24,11 +24,23 @@ if (empty($TMUX))
 endif
 
 syntax on
+" colorscheme one
+
 " colorscheme onedark
-colorscheme OceanicNext
+" colorscheme OceanicNext
+" colorscheme OceanicNextLight
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
+set background=light
+colorscheme PaperColor
 
 " Set the background to be transparent
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " line numbers
 set number
@@ -37,7 +49,7 @@ set number
 set guifont=Hack:h12
 
 " Ignore folders with ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/elm-stuff/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/ebin/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/elm-stuff/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/ebin/*,*/concat-stats-for/*
 
 call plug#begin('~/.vim/plugged')
 
@@ -50,8 +62,12 @@ Plug 'https://github.com/joshdick/onedark.vim'
 " Plug for the vim oceanic next theme
 Plug 'mhartington/oceanic-next'
 
+" Plug for the paper-color theme
+Plug 'NLKNguyen/papercolor-theme'
+
 " vim-plugs for the elixir language
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+" Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+" Plug 'elixir-editors/vim-elixir'
 
 " vim-plug for the elm langauge
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
@@ -69,7 +85,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 
 " Adding the polyglot support
-" Plug 'https://github.com/sheerun/vim-polyglot'
+Plug 'https://github.com/sheerun/vim-polyglot'
 
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
@@ -78,18 +94,21 @@ Plug 'https://github.com/christoomey/vim-tmux-navigator'
 call plug#end()
 
 " Run elm-format after save
-let g:elm_format_autosave = 1
+" let g:elm_format_autosave = 1
+
+" Run mix format after save
+let g:mix_format_on_save = 1
 
 " Config for vim-javascript
 let g:javascript_conceal_function             = "λ"
 let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
+" let g:javascript_conceal_this                 = "@"
 let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
+" let g:javascript_conceal_undefined            = "¿"
 let g:javascript_conceal_NaN                  = "ℕ"
 let g:javascript_conceal_super                = "Ω"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "⇒"
+" let g:javascript_conceal_arrow_function       = "⇒"
+" let g:javascript_conceal_noarg_arrow_function = "⇒"
 
 set conceallevel=1
 hi Conceal cterm=NONE ctermbg=NONE ctermfg=yellow
@@ -98,6 +117,7 @@ hi Conceal cterm=NONE ctermbg=NONE ctermfg=yellow
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='oceanicnext'
+
 
 " allow backspacing over everything in insert mode
  set backspace=indent,eol,start"
