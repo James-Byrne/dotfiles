@@ -74,6 +74,10 @@ Plug 'https://github.com/sheerun/vim-polyglot'
 " Adding vim/tmux navigation
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 
+" Adding vim typescript integration
+" Plug 'https://github.com/Quramy/tsuquyomi'
+" Plug 'https://github.com/vim-syntastic/syntastic'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -83,6 +87,20 @@ let g:javascript_conceal_null                 = "ø"
 let g:javascript_conceal_return               = "⇚"
 let g:javascript_conceal_NaN                  = "ℕ"
 let g:javascript_conceal_super                = "Ω"
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" 
+" " Typescript config
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
 set conceallevel=1
 hi Conceal cterm=NONE ctermbg=NONE ctermfg=yellow
