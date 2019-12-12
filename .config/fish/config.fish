@@ -25,3 +25,8 @@ set -g fish_user_paths "/usr/local/opt/node@8/bin" $fish_user_paths
 set -gx HOMEBREW_GITHUB_API_TOKEN 097768066e4e92b2d3846ef2b9f3fe1e3005b3a8
 source ~/.asdf/asdf.fish
 export MYSQL_DEVELOPMENT_ROOT_PWD="mypwd"
+
+export ANDROID_HOME=/Users/james/Library/Android/sdk
+export ANDROID_SDK_ROOT=/Users/james/Library/Android/sdk
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
