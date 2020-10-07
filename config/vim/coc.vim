@@ -8,7 +8,8 @@ let g:coc_global_extensions = [
   \ 'coc-ember',
   \ 'coc-tailwindcss',
   \ 'coc-eslint',
-  \ 'coc-elixir'
+  \ 'coc-elixir',
+  \ 'coc-pairs'
   \ ]
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable

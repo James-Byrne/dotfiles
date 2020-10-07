@@ -11,7 +11,10 @@ if (empty($TMUX))
 endif
 
 " Ignore folders with ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/elm-stuff/*,*/node_modules/*,*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/ebin/*,*/concat-stats-for/*,*_site/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\.git$\|deps\|node_modules\|_build\|\_site\|ebin\|tmp$',
+  \ 'file': '\.so$\|\.swp$\|\.zip$\'
+  \ }
 
 """"""""""""""""""""""""""
 " Editor

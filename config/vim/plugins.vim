@@ -48,14 +48,6 @@ call plug#begin('~/.vim/plugged')
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
 
-  " Working with code
-  Plug 'jiangmiao/auto-pairs'
-  " let g:AutoPairsFlyMode = 1
-
-  " M-b jumps back
-  " let g:AutoPairsShortcutJump = ''
-  " let g:AutoPairsShortcutFastWrap = ''
-
 
   " Linting
   Plug 'w0rp/ale'
