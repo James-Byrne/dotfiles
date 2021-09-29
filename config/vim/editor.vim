@@ -23,6 +23,9 @@ syntax on
 
 set mouse=a               " Allow the mouse
 
+" Allows for copy paste with Y + CMD v
+set clipboard=unnamed
+
 set guifont=Hack:h12      " Set the font
 
 set conceallevel=2        " Conceal characters
